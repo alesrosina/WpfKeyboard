@@ -1,0 +1,150 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+	x:Class="WpfKeyboard.KeyBoardControl"
+	x:Name="KeyBoardUserControl"
+	d:DesignWidth="1000" d:DesignHeight="292">
+    <UserControl.Resources>
+
+        <Style x:Key="KeyboardLetterKey" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="4" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Background="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}" MinWidth="64" MinHeight="56">
+
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver"/>
+                                    <VisualState x:Name="Pressed" >
+                                        <!--<Storyboard>
+								<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
+									<EasingColorKeyFrame KeyTime="0" Value="{StaticResource Keyboard.Color.KeyBackDark}"/>
+								</ColorAnimationUsingKeyFrames>
+							</Storyboard>-->
+                                    </VisualState>
+
+                                    <VisualState x:Name="Disabled"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <TextBlock HorizontalAlignment="Center" Height="Auto" Margin="0" TextWrapping="Wrap" Text="{TemplateBinding Content}" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <LinearGradientBrush x:Key="TabItem.Static.Background" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#F0F0F0" Offset="0.0"/>
+            <GradientStop Color="#E5E5E5" Offset="1.0"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="TabItem.Static.Border" Color="#ACACAC"/>
+        <LinearGradientBrush x:Key="TabItem.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#ECF4FC" Offset="0.0"/>
+            <GradientStop Color="#DCECFC" Offset="1.0"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="TabItem.MouseOver.Border" Color="#7EB4EA"/>
+        <SolidColorBrush x:Key="TabItem.Disabled.Background" Color="#F0F0F0"/>
+        <SolidColorBrush x:Key="TabItem.Disabled.Border" Color="#D9D9D9"/>
+        <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC"/>
+        <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/>
+        <ControlTemplate x:Key="TabItemControlTemplate1" TargetType="{x:Type TabItem}">
+            <Grid/>
+        </ControlTemplate>
+
+
+    </UserControl.Resources>
+
+
+
+    <!--<StackPanel x:Name="KeyBoard" Height="364" VerticalAlignment="Bottom">-->
+        <TabControl x:Name="KeyBoardTabControl" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="292">
+            <TabItem x:Name="CharsKeyboardTab" Header="" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0" Style="{DynamicResource TabItemStyle1}" Template="{DynamicResource TabItemControlTemplate1}" Height="0">
+                <StackPanel x:Name="CharsKeyBoard" VerticalAlignment="Top" Width="1000" Margin="0,-5,0,0">
+                    <StackPanel x:Name="Line1Panel" Height="68" Margin="0,18,0,0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Button x:Name="Line1Button1" Content="Q" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button2" Content="W" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button3" Content="E" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button4" Content="R" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button5" Content="T" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button6" Content="Z" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button7" Content="U" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button8" Content="I" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button9" Content="O" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button10" Content="P" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button11" Content="{}{" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line1Button12" Content="}" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="←" CommandParameter="backspace" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CommandKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="18.667" FontFamily="Segoe UI Light" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="Line2Panel" HorizontalAlignment="Center" Height="68" Margin="0" VerticalAlignment="Top" Orientation="Horizontal">
+                        <Button x:Name="Line2Button1" Content="A" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="20,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line2Button2" Content="S" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line2Button3" Content="D" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line2Button4" Content="F" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line2Button5" Content="G" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line2Button6" Content="H" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line2Button7" Content="J" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line2Button8" Content="K" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line2Button9" Content="L" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line2Button10" Content=";" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line2Button11" Content="'" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="↲" HorizontalAlignment="Left" CommandParameter="enter" VerticalAlignment="Top" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="117" FontSize="18.667" Click="CommandKey_Click" FontFamily="Segoe UI Light" Background="{Binding KeyEnterColor, ElementName=KeyBoardUserControl}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="Line3Panel" HorizontalAlignment="Center" Height="68" Margin="0" VerticalAlignment="Top" Orientation="Horizontal">
+                        <Button Content="↑" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CommandShift_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="108" FontSize="18.667" FontFamily="Segoe UI Light" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}" PreviewMouseDoubleClick="CommandShift_PreviewMouseDoubleClick"/>
+                        <Button x:Name="Line3Button1"  Content="Y" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line3Button2"  Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line3Button3"  Content="C" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line3Button4"  Content="V" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line3Button5"  Content="B" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line3Button6"  Content="N" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line3Button7"  Content="M" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line3Button8"  Content="," HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line3Button9"  Content="." HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button x:Name="Line3Button10" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="↑" HorizontalAlignment="Left" VerticalAlignment="Top" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="96" FontSize="18.667" Click="CommandShift_Click" FontFamily="Segoe UI Light" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}" PreviewMouseDoubleClick="CommandShift_PreviewMouseDoubleClick"/>
+                    </StackPanel>
+                    <StackPanel x:Name="Line4Panel" HorizontalAlignment="Center" Height="74" Margin="0" VerticalAlignment="Top" Orientation="Horizontal">
+                        <Button Content="&amp;123" CommandParameter="symbol" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CommandKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="128" FontSize="18.667" FontFamily="Segoe UI Light" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="608" FontSize="24" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <!--<Button Content="@" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="80" FontSize="24" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>-->
+                        <Button Content="&#xE09A;" CommandParameter="left" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CommandKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="18.667" FontFamily="Segoe UI Symbol" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="&#xE09B;" CommandParameter="right" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CommandKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="18.667" FontFamily="Segoe UI Symbol" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="&#xE2F3;" CommandParameter="hide" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CommandKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,12,0" Foreground="White" Width="64" FontSize="18.667" FontFamily="Segoe UI Symbol" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem x:Name="NumKeyboardTab" Header="" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="0" Margin="0">
+                <StackPanel x:Name="NumKeyBoard" Height="364" VerticalAlignment="Top" Margin="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel x:Name="stackPanel2" Height="352" Margin="0,12,0,0" Width="76" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Button Content="1" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="4" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="7" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="←" CommandParameter="backspace" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CommandKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="18.667" FontFamily="Segoe UI Light" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="stackPanel2_Copy" Height="352" Margin="0,12,0,0" Width="76" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Button Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="5" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="8" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="stackPanel2_Copy1" Height="352" Margin="0,12,0,0" Width="76" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Button Content="3" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="6" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="9" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="," HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="21.333" FontFamily="Segoe UI Light" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="stackPanel2_Copy2" Height="352" Margin="0,12,0,0" Width="76" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Button Content="↲" CommandParameter="enter" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CommandKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="18.667" FontFamily="Segoe UI Light" Background="{Binding KeyEnterColor, ElementName=KeyBoardUserControl}" Height="124"/>
+                        <Button Content="€" HorizontalAlignment="Left" VerticalAlignment="Top" Click="LetterKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="18.667" FontFamily="Segoe UI Light" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}"/>
+                        <Button Content="&#xE2F3;" CommandParameter="hide" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CommandKey_Click" Focusable="False" Style="{DynamicResource KeyboardLetterKey}" Margin="0,0,0,12" Foreground="White" Width="64" FontSize="18.667" FontFamily="Segoe UI Symbol" Background="{Binding KeyDarkerBackColor, ElementName=KeyBoardUserControl}"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    <!--</StackPanel>-->
+</UserControl>

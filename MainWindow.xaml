@@ -1,0 +1,17 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfKeyboard" x:Class="WpfKeyboard.MainWindow"
+        Title="MainWindow" Height="727.952" Width="1098.574">
+    <Window.Resources>
+        <Color x:Key="KeyGreenBackColor">#FF45B29D</Color>
+        <Color x:Key="KeyboardBackground">#FF34393C</Color>
+    </Window.Resources>
+    <Grid Focusable="True">
+        <local:KeyBoardControl Margin="0" VerticalAlignment="Bottom" Panel.ZIndex="100" KeyEnterColor="#FF1D70A0" IsEnabled="{Binding IsChecked, ElementName=checkBox}"/>
+        <Frame Content="Frame" HorizontalAlignment="Left" Height="279" VerticalAlignment="Top" Width="503" Source="/WpfKeyboard;component/TestPage.xaml" Background="White" Margin="240,58,0,0" BorderBrush="Red"/>
+        <CheckBox x:Name="checkBox" Content="Keyboard enabled" HorizontalAlignment="Left" Margin="665,28,0,0" VerticalAlignment="Top" IsChecked="True"/>
+
+
+    </Grid>
+</Window>
